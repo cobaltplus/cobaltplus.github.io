@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cobalt Network</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cobalt: #4a8cf5;
+    --paper: #141414;
+    --panel: #1f1f1f;
+    --tile: #272727;
+    --tile-hover: #333333;
+    --line: #2e2e2e;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper);
+    color: var(--cobalt);
+    font-family: "IBM Plex Sans", system-ui, sans-serif;
+    font-size: 1.0625rem;
+    line-height: 1.55;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid #ffb703; outline-offset: 3px; }
+
+  /* Header */
+  header {
+    background: var(--panel);
+    color: var(--cobalt);
+    padding: clamp(2.5rem, 7vw, 5rem) clamp(1.25rem, 5vw, 4rem);
+    border-bottom: 2px solid var(--line);
+  }
+  .brand {
+    max-width: 68rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 3vw, 2rem);
+  }
+  .brand img {
+    width: clamp(72px, 12vw, 128px);
+    height: auto;
+    display: block;
+  }
+  .brand h1 {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.5rem, 9vw, 6rem);
+    line-height: 1;
+    letter-spacing: -0.03em;
+  }
+
+  main {
+    max-width: 68rem;
+    margin: 0 auto;
+    padding: 0 clamp(1.25rem, 5vw, 4rem);
+  }
+  section { padding: clamp(2.5rem, 6vw, 4.5rem) 0; }
+  section + section { border-top: 2px solid var(--line); }
+  h2 {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 800;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Latest: linked repo tiles */
+  .latest {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .repo {
+    display: block;
+    text-decoration: none;
+    background: var(--tile);
+    color: var(--cobalt);
+    padding: 1.5rem;
+    min-height: 9rem;
+    border-radius: 4px;
+    transition: background 0.15s, color 0.15s;
+  }
+  .repo:hover, .repo:focus-visible { background: var(--tile-hover); }
+  .repo h3 {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+  .repo p { opacity: 0.85; }
+
+  /* Coming soon: empty slots */
+  .soon {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .slot {
+    border: 2px dashed #4a4a4a;
+    border-radius: 4px;
+    padding: 1.5rem;
+    min-height: 8rem;
+  }
+  .slot h3 {
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--cobalt);
+    margin-bottom: 0.4rem;
+  }
+
+  /* Games */
+  .btn {
+    display: inline-block;
+    background: var(--tile);
+    color: var(--cobalt);
+    border: 2px solid var(--cobalt);
+    font-family: "Bricolage Grotesque", sans-serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    text-decoration: none;
+    padding: 1rem 2.25rem;
+    border-radius: 4px;
+    transition: background 0.15s;
+  }
+  .btn:hover, .btn:focus-visible { background: var(--cobalt); color: var(--paper); }
+
+  footer {
+    max-width: 68rem;
+    margin: 0 auto;
+    padding: 2rem clamp(1.25rem, 5vw, 4rem) 3rem;
+    color: var(--cobalt);
+    opacity: 0.7;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 720px) {
+    .latest, .soon { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">
+    <img src="cobaltlogo.png" alt="cobalt-network logo">
+    <h1>cobalt-network</h1>
+  </div>
+</header>
+
+<main>
+
+  <!-- LATEST -->
+  <section id="latest">
+    <h2>Latest</h2>
+    <div class="latest">
+      <a class="repo" href="https://github.com/Aurum79-Lion-A/supreme-overrider">
+        <h3>Supreme Overrider</h3>
+        <p>ISO disc image builder packed with limitless hex editor.</p>
+      </a>
+      <a class="repo" href="https://github.com/Aurum79-Lion-A/spellcubes">
+        <h3>SpellCubes Document Editor</h3>
+        <p>A light-weight rich document and PDF creating tool.</p>
+      </a>
+      <a class="repo" href="https://github.com/Aurum79-Lion-A/corecubes">
+        <h3>CoreCubes Text Editor</h3>
+        <p>A small rich text, markdown and HTML editor. Supports almost every format.</p>
+      </a>
+      <a class="repo" href="https://github.com/Aurum79-Lion-A/Aurum-Pallette-9">
+        <h3>Aurum Pallette 9</h3>
+        <p>Aurum Pallette 9 is an painting and sketching tool, tailor-made for touchscreens.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- COMING SOON -->
+  <section id="coming-soon">
+    <h2>Coming soon</h2>
+    <div class="soon">
+      <div class="slot">
+        <h3>Aurum Pallette 10</h3>
+        <p>A raster image and photo editor, alternative to Adobe Photoshop.</p>
+      </div>
+      <div class="slot">
+        <h3>Metamorphosis</h3>
+        <p>A free, sound and vocal synthesizer.</p>
+      </div>
+      <div class="slot">
+        <h3>Mesmerizer! S</h3>
+        <p>A vectoral image and design editor, alternative to CorelDRAW.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GAMES -->
+  <section id="games">
+    <h2>Games</h2>
+    <a class="btn" href="games/wacman/index.html">Play WAC-MAN</a>
+  </section>
+
+</main>
+
+<footer>Cobalt Network © Copyright 2026, Lion-A Softwares; Mr. Cobalt.</footer>
+
+</body>
+</html>
